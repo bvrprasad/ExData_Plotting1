@@ -14,21 +14,8 @@ dataset <- read.table("../../exdata/household_power_consumption.txt", sep=";", h
 ## grep for the dates we are interested in
 fil <- grep("^[12]/2/2007", dataset$Date)
 
-## Check filtered values
-length(fil)
-head(fil)
-tail(fil)
-
-## Cross-check the boundary data for the dates
-dataset[c(66636:66637),]
-dataset[c(69515:69517),]
-
 ## Just extract the subset we are interested in
 ds <- dataset[c(fil),]
-
-## Ensure it is the right data
-head(ds)
-tail(ds)
 
 ## Create a DateTime variable in the dataset 'ds'
 dt <- paste(ds$Date, ds$Time)
